@@ -112,8 +112,8 @@ RUN mkdir -p ${HOME} && \
 ADD basefs /
 
 RUN git clone https://bitbucket.org/fivefilters/full-text-rss.git /opt/app-root/src/public/full-text-rss
-RUN rm -rf /opt/app-root/src/public/full-text-rss/site_config/standard/*
-RUN cd /opt/app-root/src/public/full-text-rss/site_config/standard && git clone https://github.com/fivefilters/ftr-site-config.git .
+RUN rm -rf /opt/app-root/src/public/full-text-rss/site_config/standard
+RUN git clone https://github.com/fivefilters/ftr-site-config.git /opt/app-root/src/public/full-text-rss/site_config/standard
 RUN chmod -R 777 /opt/app-root/src/public/full-text-rss
 
 RUN ln -s /usr/sbin/php-fpm7 /usr/sbin/php-fpm
