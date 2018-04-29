@@ -96,6 +96,8 @@ RUN mkdir -p ${HOME} && \
         php7-pgsql \
         php7-tidy \
         php7-fileinfo \
+        php7-apcu \
+        php7-zip \
         php7-iconv \
         php7-mbstring \
         php7-pdo_pgsql && \
@@ -132,7 +134,7 @@ EXPOSE 8080
 
 # Directory with the sources is set as the working directory so all STI scripts
 # can execute relative to this path
-WORKDIR ${HOME}/public/tt-rss
+WORKDIR ${HOME}/public/full-text-rss
 
 USER 1001
 
