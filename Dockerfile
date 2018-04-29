@@ -94,6 +94,7 @@ RUN mkdir -p ${HOME} && \
         php7-session \
         php7-xml \
         php7-pgsql \
+        php7-tidy \
         php7-fileinfo \
         php7-iconv \
         php7-mbstring \
@@ -110,12 +111,10 @@ RUN mkdir -p ${HOME} && \
 # Copy executable utilities
 ADD basefs /
 
-RUN git clone https://tt-rss.org/git/tt-rss.git /opt/app-root/src/public/tt-rss
-ADD *.php /opt/app-root/src/public/tt-rss/
-RUN git clone https://github.com/DigitalDJ/tinytinyrss-fever-plugin /opt/app-root/src/public/tt-rss/plugins.local/fever
-RUN wget -O /opt/app-root/src/public/tt-rss/supercronic https://github.com/aptible/supercronic/releases/download/v0.1.5/supercronic-linux-amd64
-RUN chmod +x /opt/app-root/src/public/tt-rss/supercronic
-RUN chmod -R 777 /opt/app-root/src/public/tt-rss
+RUN git clone https://bitbucket.org/fivefilters/full-text-rss.git /opt/app-root/src/public/full-text-rss
+RUN rm -rf /opt/app-root/src/public/full-text-rss/site_config/standard/*
+RUN git clone https://github.com/fivefilters/ftr-site-config.git /opt/app-root/src/public/full-text-rss/site_config/standard/
+RUN chmod -R 777 /opt/app-root/src/public/full-text-rss
 
 RUN ln -s /usr/sbin/php-fpm7 /usr/sbin/php-fpm
 
