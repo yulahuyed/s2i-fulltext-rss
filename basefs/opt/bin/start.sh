@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sed -i "s/max_entries = 10/max_entries = 50/g" /opt/app-root/src/public/full-text-rss/config.php
+sed -i "s/default_entries = 5/default_entries = 20/g" /opt/app-root/src/public/full-text-rss/config.php
 
 # Creates the .env file needs by Laravel using
 # The environment variables set both by the system
